@@ -1,0 +1,2 @@
+In this project, I was planning to use Cordova Native plugins - camera. I was able to implement this, however, as I had planned, I could not do a real device test. I was also unable to use MongoDB and Heroku as planned.
+In the future, however, I am planning to expand this project using the current version of ionic and Angular frameworks.

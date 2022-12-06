@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div margin>
+
+  <h4 class="no-item" text-center
+      *ngIf="loadItems().length ===0">No
+    report available yet!</h4>
+
+     <img src = "{{imgURL}}" height = "100" width="100" alt="student's picture"/>
+
+  <!--  showing a list of activities below that-->
+  <ion-list>
+    <ion-item-sliding
+      *ngFor="let item of loadItems(), let i = index">
+      <ion-item text-wrap>
+        <h2 text-uppercase text-bold>{{item.name}}</h2>       
+        <p text-justify>{{item.report}}</p>      
+      </ion-item>
+      <ion-item-options>
+        <button
+          (click)="editItem(item, i)"
+          ion-button color="twitter"
+          icon-start>
+          <ion-icon name="create">
+          </ion-icon>
+          Edit
+        </button>
+
+        <!-- <button
+          (click)="shareItem(item, i)"
+          ion-button color="light"
+          icon-start>
+          <ion-icon name="share">
+          </ion-icon>
+          share
+        </button> -->
+
+        <button
+          (click)="removeItem(item, i)"
+          ion-button color="secondary"
+          icon-start>
+          <ion-icon name="trash">
+          </ion-icon>
+          Done
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <!--  list of activities ends here -->
+
+  
+ <!-- fab list to include camera native feature -->
+    <ion-fab right bottom>
+       <button ion-fab><ion-icon name="arrow-dropleft"></ion-icon></button>
+       <ion-fab-list side="left">
+
+         <button (click)="addItem()" ion-fab><ion-icon name="add"></ion-icon></button>
+         <button (click)="getCamera()" ion-fab><ion-icon name="camera"></ion-icon></button>
+         <button (click)="getGallery()" ion-fab><ion-icon name="albums"></ion-icon></button>
+
+       </ion-fab-list>
+     </ion-fab>
+       <!-- fab list ends here -->
+      </div>
+
+</ion-content>
